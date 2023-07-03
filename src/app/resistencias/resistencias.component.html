@@ -1,0 +1,91 @@
+<div class="row" style="margin-top: 50px;">
+  <div class="col-12">
+    <div class="mb-3" style="text-align: center;">
+      <h1>Calcular Resistencias</h1>
+    </div>
+    <div style="text-align: center;">
+      <img src="./assets/imgR.jpg" alt="Imagen" style="width: 400px; height: auto;">
+    </div>
+    <div class="row col-12">
+      <div class="col-4">
+        <label class="form-label">Banda 1:</label>
+        <select class="form-select" [(ngModel)]="banda1" [style.background]="colorToHex(banda1)">
+          <option *ngFor="let color of colores" [style.background]="colorToHex(color)">{{ color }}</option>
+        </select>
+      </div>
+
+      <div class="col-4">
+        <label class="form-label">Banda 2:</label>
+        <select class="form-select" [(ngModel)]="banda2" [style.background]="colorToHex(banda2)">
+          <option *ngFor="let color of colores" [style.background]="colorToHex(color)">{{ color }}</option>
+        </select>
+      </div>
+
+      <div class="col-4">
+        <label class="form-label">Banda 3:</label>
+        <select class="form-select" [(ngModel)]="banda3" [style.background]="colorToHex(banda3)">
+          <option *ngFor="let color of colores" [style.background]="colorToHex(color)">{{ color }}</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="row mt-3">
+      <div class="col-sm-3">
+        <label class="form-label">Tolerancia:</label>
+        <div>
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" name="tolerancia" [(ngModel)]="tolerancia" value="Rojo">
+            Rojo
+          </label>
+        </div>
+        <div>
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" name="tolerancia" [(ngModel)]="tolerancia" value="Dorado">
+            Dorado
+          </label>
+        </div>
+        <div>
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" name="tolerancia" [(ngModel)]="tolerancia" value="Plata">
+            Plata
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <div class="row mt-4">
+      <div class="col-sm-3">
+        <button class="btn btn-primary" (click)="calcularResistencia()">Calcular</button>
+      </div>
+    </div>
+
+    <div class="row mt-4" *ngIf="valorR">
+      <div class="col-12">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Banda 1</th>
+              <th scope="col">Banda 2</th>
+              <th scope="col">Banda 3</th>
+              <th scope="col">Tolerancia</th>
+              <th scope="col">Valor de la resistencia (Ohms)</th>
+              <th scope="col">Valor máximo con tolerancia (Ohms)</th>
+              <th scope="col">Valor mínimo con tolerancia (Ohms)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td [style.background]="colorToHex(banda1)">{{ banda1 }}</td>
+              <td [style.background]="colorToHex(banda2)">{{ banda2 }}</td>
+              <td [style.background]="colorToHex(banda3)">{{ banda3 }}</td>
+              <td [style.background]="colorToHex(tolerancia)">{{ tolerancia }}</td>
+              <td>{{ valorR }}</td>
+              <td>{{ valorMax }}</td>
+              <td>{{ valorMin }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

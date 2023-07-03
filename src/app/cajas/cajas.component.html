@@ -1,0 +1,20 @@
+<div class="row" style="margin-top: 50px;">
+    <div class="col-12">
+        <div class="container">
+            <div class="form-group">
+                <label for="numCajas">Ingrese un número que deseas generar de cajas:</label>
+                <input type="number" class="form-control" [(ngModel)]="numCajas">
+            </div>
+            <br>
+            <button class="btn btn-primary" (click)="cajasG()">Crear</button>
+
+            <div class="row mt-4">
+                <div class="col-4" *ngFor="let caja of cajas">
+                    <label for="">Caja Numero: {{caja}}</label>
+                    <input class="form-control form-control-lg" type="text">
+                    <br>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
